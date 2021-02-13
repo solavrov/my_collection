@@ -1,0 +1,90 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'collection/style_index.css' %}">
+{% load thumbnail %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mytext.title }}</title>
+</head>
+<body>
+
+    <img class="left_decor" src="{% static 'collection/images/bauble_left.png' %}">
+    <img class="right_decor" src="{% static 'collection/images/bauble_right.png' %}">
+
+    <h1 class="headline">
+        <a class="headline" href="mailto: 2elavrova@gmail.com">
+            <img class="headline" src="{% static 'collection/images/email.png' %}">
+        </a>
+        {{ mytext.headline }}
+        <a class="headline" href="/admin/collection/item/">
+            <img class="headline" src="{% static 'collection/images/pencil.png' %}">
+        </a>
+    </h1>
+
+    <form action="{% url 'collection:index' %}" method="post">
+        {% csrf_token %}
+        <label class="search" for="search">{{ mytext.search }}</label>
+        <input class="text" type="text" name="search" id="search" value="{{ search_text }}">
+        <input class="icon" type="image" src="{% static 'collection/images/search.png' %}">
+    </form>
+
+    {% if col %}
+        <table>
+            <tr>
+                <th>#</th>
+                <th>{{ mytext.time }}</th>
+                <th>{{ mytext.name }}</th>
+                <th>{{ mytext.keys }}</th>
+                <th>{{ mytext.comments }}</th>
+                <th>{{ mytext.photo }}</th>
+            </tr>
+            {% for item in col %}
+                <tr>
+                    <td class="center">
+                        <a class="item" href="{% url 'collection:details' item.id %}">
+                            {{ forloop.counter }}
+                        </a>
+                    </td>
+                    <td class="center">
+                        <a class="item" href="{% url 'collection:details' item.id %}">
+                            {{ item.post_date }}
+                        </a>
+                    </td>
+                    <td class="center">
+                        <a class="item" href="{% url 'collection:details' item.id %}">
+                        {{ item.name }}
+                        </a>
+                    </td>
+                    <td class="left">
+                        <a class="item" href="{% url 'collection:details' item.id %}">
+                            {{ item.key_words }}
+                        </a>
+                    </td>
+                    <td class="left">
+                        <a class="item" href="{% url 'collection:details' item.id %}">
+                            {{ item.info }}
+                        </a>
+                    </td>
+                    <td class="center">
+                        <a class="item" href="{% url 'collection:details' item.id %}">
+                            {% thumbnail item.photo "x50" crop="center" as im %}
+                                <img class="photo" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                            {% endthumbnail %}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>{{ mytext.no_item }}</p>
+    {% endif %}
+</body>
+</html>
+
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>

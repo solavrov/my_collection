@@ -1,0 +1,137 @@
+:root {
+  --darkblue: #417690;
+  --lightblue: #79aec8;
+  --superlightblue: #ebf9ff;
+  --darkyellow: #f5dd5d;
+  --lightyellow: #ffffcc;
+  --pickcolor: #f3cddc;
+  --darkgrey: #474747;
+  --shadow: #888888;
+  --r: 4px;
+}
+
+body {
+    background-color: var(--superlightblue)
+}
+
+a.headline {
+    display: inline;
+    text-decoration: none;
+}
+
+a.item {
+    display: block;
+    text-decoration: none;
+    color: var(--darkgrey);
+}
+
+p {
+    text-align: center;
+    color: var(--darkblue);
+    font-family: verdana;
+}
+
+img.headline {
+    height: 32px;
+/*    vertical-align: middle;*/
+}
+
+img.left_decor {
+    float: left;
+    height: 64px;
+    padding-left: 5px;
+    padding-top: 2px;
+}
+
+img.right_decor {
+    float: right;
+    height: 64px;
+    padding-right: 5px;
+    padding-top: 2px;
+}
+
+img.photo {
+    border-radius: var(--r);
+}
+
+h1.headline {
+    text-align: center;
+    font-family: verdana;
+    background-color: var(--darkblue);
+    margin-bottom: 5px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    color: var(--darkyellow);
+    box-shadow: 3px 3px 3px var(--shadow);
+    border-radius: var(--r);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px;
+    font-family: verdana;
+    background-color: var(--lightblue);
+    box-shadow: 3px 3px 3px var(--shadow);
+    border-radius: var(--r);
+}
+
+th {
+    background-color: var(--darkblue);
+    color: var(--lightyellow);
+    padding: 5px;
+    white-space: nowrap;
+    border-radius: var(--r);
+}
+
+tr {
+    background-color: white;
+}
+
+tr:hover {
+    background-color: var(--pickcolor);
+}
+
+td.center {
+    text-align: center;
+    padding: 5px;
+    border-radius: var(--r);
+}
+
+td.left {
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+/*    text-align: justify;*/
+    border-radius: var(--r);
+}
+
+form {
+    text-align: center;
+    font-family: verdana;
+    background-color: var(--lightblue);
+    padding-top: 7px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    box-shadow: 3px 3px 3px var(--shadow);
+    border-radius: var(--r);
+}
+
+label.search {
+    color:white;
+}
+
+input.text {
+    width: 33%;
+    font-size: 16px;
+    border-radius: var(--r);
+    border: 2px solid var(--darkblue);
+}
+
+input.icon {
+    height: 32px;
+    vertical-align: middle;
+}
+

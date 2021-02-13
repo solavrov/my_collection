@@ -1,0 +1,43 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'collection/style_details.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ item.name }}</title>
+</head>
+<body>
+
+    <img class="left_decor" src="{% static 'collection/images/bauble_left.png' %}">
+    <img class="right_decor" src="{% static 'collection/images/bauble_right.png' %}">
+
+    <h2 class="name">
+        {{ item.name }}
+        <a class="edit" href="/admin/collection/item/{{ item.id }}/change/">
+            <img class="edit" src="{% static 'collection/images/pencil.png' %}">
+        </a>
+    </h2>
+
+    <table>
+        <tr>
+            <td class="first"><b>{{ mytext.time }}</b></td>
+            <td class="second">{{ item.post_date }}</td>
+        </tr>
+        <tr>
+            <td class="first"><b>{{ mytext.keys }}</b></td>
+            <td class="second">{{ item.key_words }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <img src="{{ MEDIA_URL }}{{ item.photo.url }}" alt="{{ item.name }}" class="photo">
+            </td>
+        </tr>
+        <tr>
+            <td class="first"><b>{{ mytext.comments }}</b></td>
+            <td class="second">{{ item.info }}</td>
+        </tr>
+    </table>
+
+</body>
+</html>
